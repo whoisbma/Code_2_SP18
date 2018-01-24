@@ -1,3 +1,12 @@
+// code 2
+// section a
+// bfa dt
+// spring 2018
+// bryan ma
+
+// week 1
+// simple ball class
+
 Ball ball;
 
 void setup() {

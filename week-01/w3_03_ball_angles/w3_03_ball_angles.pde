@@ -1,3 +1,18 @@
+// code 2
+// section a
+// bfa dt
+// spring 2018
+// bryan ma
+
+// week 1
+// ball class using an angle variable
+
+// the angle variable is used to set the velocity vector. the reason this is
+// being used rather than reflecting the angle and just calculating new positions
+// is that reflection is rather simple to handle with the edge walls as they're 
+// straight up and down and across. if you're interested in more complex angle
+// reflection, check out the examples in Topics - Motion - Reflection.
+
 Ball ball;
 
 void setup() {

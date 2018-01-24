@@ -1,3 +1,18 @@
+// code 2
+// section a
+// bfa dt
+// spring 2018
+// bryan ma
+
+// week 1
+// basic key controls
+
+// this is a fairly reliable approach to managing your input in Processing.
+// there's a boolean for every key you want to track
+// the keypressed and keyreleased functions update them accordingly.
+// there is a potential issue with mac os sierra for keypressed generally, keep an eye out for it:
+// https://github.com/processing/processing/wiki/Troubleshooting#key-repeat-on-macos-sierra
+
 boolean p1Up;
 boolean p1Down;
 boolean p2Up;
