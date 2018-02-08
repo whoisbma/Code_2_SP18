@@ -216,9 +216,9 @@ function Paddle(num) {
 // 
 function studentColliders(x, y, angle, speed, size) {
   this.id = 0;
-  this.pos = new PVector(x, y);
+  this.pos = createVector(x, y);
   this.speed = speed;
-  this.vel = new PVector(cos(angle) * speed, sin(angle) * speed);
+  this.vel = createVector(cos(angle) * speed, sin(angle) * speed);
   this.size = 10;
 
   this.update = function() {
