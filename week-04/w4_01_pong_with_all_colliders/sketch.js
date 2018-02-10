@@ -4,8 +4,8 @@
 // spring 2018
 // bryan ma
 
-// week 3
-// pong with collider
+// week 4
+// pong with all colliders
 
 var ball;
 var p1, p2;
@@ -18,7 +18,7 @@ var p2Down = false;
 var margin = 20;
 var cnv;
 var paddleBounceSFX, hitColliderSFX;
-var collider;
+var colliders = [];
 
 function preload() {
 
@@ -42,7 +42,6 @@ function setup() {
   ball = new Ball();
   p1 = new Paddle(0);
   p2 = new Paddle(1);
-  collider = new Collider();
 }
 
 function draw() {
@@ -55,16 +54,25 @@ function draw() {
   ball.update();
   p1.update();
   p2.update();
-  collider.update();
+  for (var i = 0; i < colliders.length; i++) {
+    colliders[i].update();
+  }
 
   p1.display();
   p2.display();
-  collider.display();
+
+  for (var i = 0; i < colliders.length; i++) {
+    colliders[i].display();
+  }
+
   ball.display(); 
 
   checkCollisionWithBall(ball, p1);
   checkCollisionWithBall(ball, p2);
-  checkCollisionWithBall(ball, collider);
+
+  for (var i = 0; i < colliders.length; i++) {
+    checkCollisionWithBall(ball, colliders[i]);
+  }
 }
 
 function drawField() {
@@ -248,6 +256,10 @@ function Collider() {
 }
 
 function keyPressed() {
+  if (key === ' ') {
+    colliders.push(new Collider());
+  }
+
   if (key === 'W') {
     p1Up = true;
   }
