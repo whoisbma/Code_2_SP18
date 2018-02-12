@@ -258,7 +258,7 @@ function Collider() {
 
 function keyPressed() {
   if (key === ' ') {
-    switch (floor(random(8))) {
+    switch (floor(random(9))) {
       case 0:
         colliders.push(new Collider());
         break;
@@ -284,6 +284,9 @@ function keyPressed() {
         break;
       case 7:
         colliders.push(new Jackie());
+        break;
+      case 8:
+        colliders,push(new Cat());
         break;
     }
     // 

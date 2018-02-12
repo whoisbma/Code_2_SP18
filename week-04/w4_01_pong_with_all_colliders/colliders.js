@@ -467,3 +467,29 @@ function Jackie() {
   }
 }
 
+function Cat {
+  this.pos = new createVector(0, 0);
+  this.speed = 0;
+  this.angle = 70;
+  this.vel = new createVector(cos(this.angle) * this.speed, sin(this.angle) * this.speed);
+  this.width = 0;
+  this.height = 0;
+  this.c = color(255, 0, 0);
+
+
+  this.update = function() {
+  this.pos.add(this.angle);
+  }
+
+  this.display = function() {
+  rect(pos, pos, this.width, this.height);
+  fill(this.c);
+  // draw something here
+  }
+
+  this.collided = function(other) {
+  this.width+10;
+  this.height+20;
+  fill(random(0, 255), random(0, 255), random(0, 255));
+}
+
