@@ -249,6 +249,7 @@ function Collider() {
     } else {
       this.height = 0;
     }
+
     if (!hitColliderSFX.isPlaying()) {
       hitColliderSFX.play();
     }
@@ -257,7 +258,41 @@ function Collider() {
 
 function keyPressed() {
   if (key === ' ') {
-    colliders.push(new Collider());
+    switch (floor(random(8))) {
+      case 0:
+        colliders.push(new Collider());
+        break;
+      case 1:
+        colliders.push(new Yizhou());
+        break;
+      case 2:
+        colliders.push(new Ellie());
+        break;
+      case 3:
+        colliders.push(new Yanwen());
+        break;
+      case 4:
+        colliders.push(new MaddyRed());
+        colliders.push(new MaddyGreen());
+        colliders.push(new MaddyBlue());
+        break;
+      case 5:
+        colliders.push(new AlyssaForrest());
+        break;
+      case 6:
+        colliders.push(new Sarah());
+        break;
+      case 7:
+        colliders.push(new Jackie());
+        break;
+    }
+    // 
+
+    // 
+    // 
+    // 
+    // colliders.push(new Yang()); // this one doesn't work
+    
   }
 
   if (key === 'W') {
@@ -290,3 +325,4 @@ function keyReleased() {
     p2Down = false;
   }
 }
+
