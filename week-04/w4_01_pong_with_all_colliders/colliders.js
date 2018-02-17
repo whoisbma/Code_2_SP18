@@ -1,3 +1,44 @@
+function Bryan() {
+  this.speed = 1;
+  this.angle = 0;
+  this.vel = createVector(0, sin(this.angle) * this.speed);
+  this.width = 10;
+  this.height = 200;
+  this.pos = createVector(random(200, width-200-this.width), random(300, height-300-this.height));
+
+  this.update = function() {
+    this.angle = (this.angle + 0.05) % TWO_PI;
+    this.vel.y = sin(this.angle) * this.speed;
+    this.pos.add(this.vel);
+  }
+
+  this.display = function() {
+    fill(color(map(sin(this.angle), -1, 1, 0, 255), map(cos(this.angle), -1, 1, 0, 255), 1));
+    rect(this.pos.x, this.pos.y, this.width, this.height);
+  }
+
+  this.collided = function(other) {
+    if (other.speed > 1) {
+      other.speed -= 0.5;
+    }
+
+    other.angle = random(TWO_PI);
+    other.vel.x = cos(other.angle) * other.speed;
+    other.vel.y = sin(other.angle) * other.speed;
+
+    if (this.height > 0) {
+      this.pos.y += 20;
+      this.height -= 40;      
+    } else {
+      this.height = 0;
+    }
+
+    if (!hitColliderSFX.isPlaying()) {
+      hitColliderSFX.play();
+    }
+  }
+}
+
 function Yizhou() {
   var balls;
 
@@ -399,7 +440,8 @@ function Jackie() {
   }
 }
 
-function Cat {
+
+function Cat() {
   this.pos = new createVector(0, 0);
   this.speed = 0;
   this.angle = 70;
@@ -410,18 +452,18 @@ function Cat {
 
 
   this.update = function() {
-  this.pos.add(this.angle);
+    this.pos.add(this.angle);
   }
 
   this.display = function() {
-  rect(pos, pos, this.width, this.height);
-  fill(this.c);
-  // draw something here
+    rect(pos, pos, this.width, this.height);
+    fill(this.c);
   }
 
   this.collided = function(other) {
-  this.width+10;
-  this.height+20;
-  fill(random(0, 255), random(0, 255), random(0, 255));
+    this.width+10;
+    this.height+20;
+    fill(random(0, 255), random(0, 255), random(0, 255));
+  }
 }
 

@@ -215,89 +215,41 @@ function Paddle(num) {
   }
 }
 
-function Collider() {
-  this.speed = 1;
-  this.angle = 0;
-  this.vel = createVector(0, sin(this.angle) * this.speed);
-  this.width = 10;
-  this.height = 200;
-  this.pos = createVector(random(200, width-200-this.width), random(300, height-300-this.height));
 
-  this.update = function() {
-    this.angle = (this.angle + 0.05) % TWO_PI;
-    this.vel.y = sin(this.angle) * this.speed;
-    this.pos.add(this.vel);
-  }
-
-  this.display = function() {
-    fill(color(map(sin(this.angle), -1, 1, 0, 255), map(cos(this.angle), -1, 1, 0, 255), 1));
-    rect(this.pos.x, this.pos.y, this.width, this.height);
-  }
-
-  this.collided = function(other) {
-    if (other.speed > 1) {
-      other.speed -= 0.5;
-    }
-
-    other.angle = random(TWO_PI);
-    other.vel.x = cos(other.angle) * other.speed;
-    other.vel.y = sin(other.angle) * other.speed;
-
-    if (this.height > 0) {
-      this.pos.y += 20;
-      this.height -= 40;      
-    } else {
-      this.height = 0;
-    }
-
-    if (!hitColliderSFX.isPlaying()) {
-      hitColliderSFX.play();
-    }
-  }
-}
 
 function keyPressed() {
   if (key === ' ') {
-
-    colliders.push(new Yang()); // this one doesn't work
-    // switch (floor(random(9))) {
-    //   case 0:
-    //     colliders.push(new Collider());
-    //     break;
-    //   case 1:
-    //     colliders.push(new Yizhou());
-    //     break;
-    //   case 2:
-    //     colliders.push(new Ellie());
-    //     break;
-    //   case 3:
-    //     colliders.push(new Yanwen());
-    //     break;
-    //   case 4:
-    //     colliders.push(new MaddyRed());
-    //     colliders.push(new MaddyGreen());
-    //     colliders.push(new MaddyBlue());
-    //     break;
-    //   case 5:
-    //     colliders.push(new AlyssaForrest());
-    //     break;
-    //   case 6:
-    //     colliders.push(new Sarah());
-    //     break;
-    //   case 7:
-    //     colliders.push(new Jackie());
-    //     break;
-    //   case 8:
-    //     colliders,push(new Cat());
-    //     break;
-    // }
-    // 
-
-    // 
-    // 
-    // 
-    
-    
+    switch (floor(random(9))) {
+      case 0:
+        colliders.push(new Bryan());
+        break;
+      case 1:
+        colliders.push(new Yizhou());
+        break;
+      case 2:
+        colliders.push(new Ellie());
+        break;
+      case 3:
+        colliders.push(new Yanwen());
+        break;
+      case 4:
+        colliders.push(new MaddyRed());
+        colliders.push(new MaddyGreen());
+        colliders.push(new MaddyBlue());
+        break;
+      case 5:
+        colliders.push(new AlyssaForrest());
+        break;
+      case 6:
+        colliders.push(new Sarah());
+        break;
+      case 7:
+        colliders.push(new Jackie());
+        break;
+      case 8:
+        colliders,push(new Cat());
+        break;
+    }
   }
 
   if (key === 'W') {
