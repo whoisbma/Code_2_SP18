@@ -258,43 +258,45 @@ function Collider() {
 
 function keyPressed() {
   if (key === ' ') {
-    switch (floor(random(9))) {
-      case 0:
-        colliders.push(new Collider());
-        break;
-      case 1:
-        colliders.push(new Yizhou());
-        break;
-      case 2:
-        colliders.push(new Ellie());
-        break;
-      case 3:
-        colliders.push(new Yanwen());
-        break;
-      case 4:
-        colliders.push(new MaddyRed());
-        colliders.push(new MaddyGreen());
-        colliders.push(new MaddyBlue());
-        break;
-      case 5:
-        colliders.push(new AlyssaForrest());
-        break;
-      case 6:
-        colliders.push(new Sarah());
-        break;
-      case 7:
-        colliders.push(new Jackie());
-        break;
-      case 8:
-        colliders,push(new Cat());
-        break;
-    }
+
+    colliders.push(new Yang()); // this one doesn't work
+    // switch (floor(random(9))) {
+    //   case 0:
+    //     colliders.push(new Collider());
+    //     break;
+    //   case 1:
+    //     colliders.push(new Yizhou());
+    //     break;
+    //   case 2:
+    //     colliders.push(new Ellie());
+    //     break;
+    //   case 3:
+    //     colliders.push(new Yanwen());
+    //     break;
+    //   case 4:
+    //     colliders.push(new MaddyRed());
+    //     colliders.push(new MaddyGreen());
+    //     colliders.push(new MaddyBlue());
+    //     break;
+    //   case 5:
+    //     colliders.push(new AlyssaForrest());
+    //     break;
+    //   case 6:
+    //     colliders.push(new Sarah());
+    //     break;
+    //   case 7:
+    //     colliders.push(new Jackie());
+    //     break;
+    //   case 8:
+    //     colliders,push(new Cat());
+    //     break;
+    // }
     // 
 
     // 
     // 
     // 
-    // colliders.push(new Yang()); // this one doesn't work
+    
     
   }
 
@@ -329,3 +331,70 @@ function keyReleased() {
   }
 }
 
+
+
+function Yang() {
+  this.pos = createVector(width/2, height/2);
+  this.speed = 5;
+  this.angle = 0;
+  this.vel = createVector(cos(this.angle) * this.speed, sin(this.angle) * this.speed);
+  this.width = 100;
+  this.height = 100;
+ 
+  
+
+  this.update = function() {
+    this.angle = (this.angle + 0.05) % TWO_PI;
+    this.vel.x = cos(this.angle) * this.speed;
+    this.vel.y = sin(this.angle) * this.speed;
+    this.pos.add(this.vel);
+
+
+  }
+
+  this.display = function(b,p) {
+    stroke(255);
+    if(p1Score>10 || p2Score>10){
+    fill(255,0,0,50);
+  } else {
+    fill(255,20);
+  }
+    
+  ellipse(width/2,height/2, b.pos.y-b.size/2, b.pos.y-b.size/2);
+  fill(color(map(sin(this.angle), -1, 1, 0, 255), map(cos(this.angle), -1, 1, 0, 255), random(20,40),130));
+  triangle(width/2,height/2,p.pos.x+p.width/2, p.pos.y+p.height/2,b.pos.x+b.size/2, b.pos.y+b.size/2);
+    // stroke(255);
+    // fill(255,10);
+    // ellipse(width/2,height/2, b.pos.y+b.height/2, b.pos.y+b.height/2);
+    // fill(color(map(sin(this.angle), -1, 1, 0, 255), map(cos(this.angle), -1, 1, 0, 255), 1,100));
+    // triangle(width/2,height/2,p.pos.x+p.width, p.pos.y+p.height/2,ball.pos.x+ball.width/2, ball.pos.y+ball.height/2);
+  }
+  this.collided = function(b) {
+    var d = dist(b.pos.x,b.pos.y,width/2,height/2);
+     if(d < (b.pos.y-b.size/2)/2){
+     
+
+      for (var i =0; i <= b.pos.y-b.size/2; i+=15) {
+        background(random(0,255),255-d,d+200,5);
+        for(var j =10; j<=255; j+=15){
+
+          stroke(random(0,j),random(255-j,j),i,240);
+          noFill();
+          ellipse(width/2,height/2,i,i);
+
+        }}
+
+      // var a = b.pos.x;
+      // var b = b.pos.y;
+      // // ellipse(a,b,50,50);
+      
+      
+     }}
+
+
+  
+
+
+    // do something cool here! do something to yourself,
+    // and also something to the other thing?
+  }
