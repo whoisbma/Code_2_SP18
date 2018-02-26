@@ -160,7 +160,9 @@ function setUpScene(whichScene) {
     case sceneState.GAME:
       gameTimer = millis();
       break;
-    case sceneState.END:
+    case sceneState.WIN:
+      break;
+    case sceneState.LOSE:
       break;
     default:
       break;
