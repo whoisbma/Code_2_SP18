@@ -12,38 +12,54 @@
 // {
 //   sceneText: '', //the scene text
 //   options: [], // the text options to choose
-//   results: []  // the target scene based on the previous options
+//   nextScenes: []  // the target scene based on the previous options
 // }
 
+var sceneData;
 
 var currentScene = 0;
+var scenes = [];
+
+function preload() {
+  sceneData = loadJSON('scenes.json');
+}
 
 function setup() {
   createCanvas(800, 800);
+  CreateScenesFromData(sceneData.scenes);
 }
 
 function draw() {
   background(255);
+  scenes[currentScene].display();
 }
 
-function Scene(sceneText, options, results) {
+function CreateScenesFromData(data) {
+  for (var i = 0; i < data.length; i++) {
+    scenes.push(new Scene(data[i].sceneText, data[i].options, data[i].nextScenes))
+  }
+}
+
+function Scene(sceneText, options, nextScenes) {
   this.sceneText = sceneText;
   this.options = options;
-  this.results = results;
+  this.nextScenes = nextScenes;
 
   this.display = function() {
     fill(0);
+    textSize(32);
     text(this.sceneText, 100, 100);
+
     for (var i = 0; i < options.length; i++) {
       text((i + 1) + ': ' + this.options[i], 150, 200 + i * 50);
     }
   }
 }
 
-// function loadPaintData() {
-//   loadJSON(scenetDataFile, parseSceneData);
-// }
-
-// function parseSceneData(data) {
-  
-// }
+function keyPressed() {
+  var numberPressed = parseInt(key);
+  var newScene = scenes[currentScene].nextScenes[numberPressed - 1];
+  if (newScene !== undefined) {
+    currentScene = newScene;
+  }
+}

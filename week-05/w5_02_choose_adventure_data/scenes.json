@@ -1,0 +1,29 @@
+{
+  "scenes": [
+    {
+      "sceneText": "This is scene 0",
+      "options": ["go to scene 1"],
+      "nextScenes": [1]
+    },
+    {
+      "sceneText": "This is scene 1",
+      "options": ["go to scene 2", "go to scene 3"],
+      "nextScenes": [2, 3]
+    },
+    {
+      "sceneText": "This is scene 2",
+      "options": ["go to scene 3", "go to scene 4"], 
+      "nextScenes": [3, 4] 
+    },
+    {
+      "sceneText": "This is scene 3",
+      "options": ["go to scene 4", "go to scene 0"],
+      "nextScenes": [4, 0]
+    },
+    {
+      "sceneText": "This is scene 4",
+      "options": ["go to scene 0", "go to scene 1", "go to scene 2", "go to scene 3"],
+      "nextScenes": [0, 1, 2, 3]
+    }
+  ]
+}
