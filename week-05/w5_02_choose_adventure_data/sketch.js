@@ -40,10 +40,10 @@ function Scene(sceneText, options, results) {
   }
 }
 
-function loadPaintData() {
-  loadJSON(scenetDataFile, parseSceneData);
-}
+// function loadPaintData() {
+//   loadJSON(scenetDataFile, parseSceneData);
+// }
 
-function parseSceneData(data) {
+// function parseSceneData(data) {
   
-}
+// }
