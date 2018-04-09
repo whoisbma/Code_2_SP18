@@ -32,6 +32,10 @@ function setup() {
 function draw() {
   background(231, 190, 150);
   scenes[currentScene].display();
+
+  fill(0);
+  textSize(24);
+  text("press the option number to advance to the indicated scene", 50, 700);
 }
 
 function CreateScenesFromData(data) {
@@ -51,7 +55,7 @@ function Scene(sceneText, options, nextScenes) {
     text(this.sceneText, 100, 100);
 
     for (var i = 0; i < options.length; i++) {
-      text((i + 1) + ': ' + this.options[i], 150, 200 + i * 50);
+      text('OPTION ' + (i + 1) + ': ' + this.options[i], 150, 200 + i * 50);
     }
   }
 }

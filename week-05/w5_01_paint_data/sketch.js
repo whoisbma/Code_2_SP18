@@ -20,6 +20,12 @@ function draw() {
   for (var i = 0; i < paintmarks.length; i++) {
     paintmarks[i].display();
   }
+
+  fill(0);
+  textSize(24);
+  text("drag the mouse across the canvas to draw.", 50, 570);
+  text("press 'S' to save a json file with the current paint data.", 50, 600);
+  text("press 'L' to load a json file from your computer.", 50, 630);
 }
 
 function PaintMark(position) {
