@@ -61,7 +61,6 @@ function onButtonPressed() {
 
 // callback for line 57, when the API request is completed, display the new image and delete the old one.
 function onGotDoggo(data) {
-	imgElement.src = data.message;
 	imgElement.remove();
 	imgElement = createImg(data.message);
 }
