@@ -59,7 +59,7 @@ function onButtonPressed() {
 	loadJSON('https://dog.ceo/api/breed/' + selectedDoggo + '/images/random', onGotDoggo);
 }
 
-// callback for line 57, when the API request is completed, display the new image and delete the old one.
+// callback for line 58, when the API request is completed, display the new image and delete the old one.
 function onGotDoggo(data) {
 	imgElement.remove();
 	imgElement = createImg(data.message);
