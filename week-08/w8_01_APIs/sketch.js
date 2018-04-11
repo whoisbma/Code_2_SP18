@@ -4,7 +4,7 @@
 // spring 2018
 // bryan ma
 
-// week 7
+// week 8
 // giphy API
 // based on example by Dan Shiffman
 
