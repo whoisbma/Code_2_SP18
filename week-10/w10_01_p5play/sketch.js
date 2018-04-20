@@ -4,11 +4,8 @@
 // spring 2018
 // bryan ma
 
-// week 8
-// using p5.js DOM functionality with an API
-// note this particular API doesn't require an API key
-// this code creates ALL html elements in the p5js code. 
-// you can do static stuff yourself in the index.html file if you wish.
+// week 10
+// p5 play with an API
 
 // this example uses https://dog.ceo/dog-api/
 
@@ -24,7 +21,7 @@ function setup() {
   loadJSON('https://dog.ceo/api/breeds/list/all', gotAllBreeds);
 
   createElement('h1', 'Welcome to the doggo image thingie!');
-  createElement('h3', 'Select a breed and press the button below to see a doggo of that breed:');
+  createElement('h3', 'Select a breed and press the button below to make a doggo of that breed:');
 
   buttonElement = createButton('show me the doggo');
   buttonElement.mousePressed(onButtonPressed);
