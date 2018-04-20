@@ -4,7 +4,7 @@
 // spring 2018
 // bryan ma
 
-// week 9
+// week 8
 // using p5.js DOM functionality with an API
 // note this particular API doesn't require an API key
 // this code creates ALL html elements in the p5js code. 
